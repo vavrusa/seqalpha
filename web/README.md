@@ -17,6 +17,10 @@ There are three main components to the website:
 * Python-Markdown (http://pythonhosted.org//Markdown/)
 * ViennaRNA Package (https://www.tbi.univie.ac.at/~ronny/RNA) for the RNAfold runnable
 
+### ViennaRNA Package
+
+The ViennaRNA installation instructions can be found [here](http://www.tbi.univie.ac.at/RNA/documentation.html#install).
+
 ## Installation
 
 No installation is neccessary, the default host is '0.0.0.0' and port 5000.
