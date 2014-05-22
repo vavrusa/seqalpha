@@ -36,12 +36,16 @@ def process_path(dirname, result_file = None):
     ''' Process PDB files in a path. '''
     return_code = 0
     if os.path.isdir(dirname):
-        for filename in glob.glob(dirname + '/*.pdb'):
+        pdb_files = glob.glob(dirname + '/*.pdb')
+        if len(pdb_files) == 0:
+            print('> \'%s\' is empty\n  * missing \'./pdbfetch.py %s\' ?' % (dirname, dirname))
+            return 1
+        for filename in pdb_files:
             return_code = process_file(filename, qclass = dirname, result_file = result_file)
             if return_code != 0:
                 break
     else:
-        process_file(sys.argv[1])
+        process_file(dirname)
     return return_code
 
 def class_description(dirname):
@@ -92,7 +96,7 @@ if __name__ == '__main__':
                 process_path(arg, result_file)
         else:
             # Write results
-            for qclass in ['basket', 'chair_type', '3_plus_1', '2_plus_2', 'propeller', 'pdl', 'ppl', 'pplp']:
+            for qclass in ['basket', 'chair_type', '3_plus_1', '2_plus_2', 'propeller', 'pdl', 'pplp']:
                 process_path(qclass, result_file)
 
     # Return proper code
