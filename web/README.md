@@ -48,6 +48,12 @@ The user interface presents a header in the top of the page, which allows:
 * To execute a filtering operation with given parameters
 * To resume a previous search
 
+### Custom data sets
+
+That depends on what you're looking for! For example human untranslated regions
+can be found at the [ASPicDB](http://ebi.edu.au/ftp/databases/UTR/data/).
+Note that the web interface accepts uncompressed FASTA only.
+
 ### Search results
 
 The search results are presented as a sequence of filtering operations. Each filtering operation works with the results
