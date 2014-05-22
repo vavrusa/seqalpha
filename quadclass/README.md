@@ -57,7 +57,8 @@ The tool for prediction of the GQ topologies from the sequences. The input of th
 If no sequence is passed to the tool, the whole training set is processed and the overview of all predictors including the p-values is printed to the standard output.
 
 	# Scan all GQ structures
-	$ ./quadclass.py -o gqclass-all.tsv 2_plus_2 3_plus_1 basket bi_diagonal_loop bi_lateral_loop bi_propeller chair_type four_strand pdl pplp propeller
+	$ ./quadclass.py -o gqclass-all.tsv 2_plus_2 3_plus_1 basket bi_diagonal_loop bi_lateral_loop \
+	  bi_propeller chair_type four_strand pdl pplp propeller
 	# Predict family from sequence
 	$ ./seqlearn.py GGGTTGGGTTAGGGTTGGG
 	> GGGTTGGGTTAGGGTTGGG ...
@@ -76,12 +77,12 @@ from the quadclass analysis of all available structures and randomized.
 
 The quadlearn tool supports a `-t` parameter for a training set:
 
-	$ ./quadlearn.py -g -t test/train80.tsv test/test20.tsv # 80-20 split
+	$ ./quadlearn.py -g -t test/train80.tsv test/test20.tsv
 
 ### Structure prediction
 
 The `-g`  parameter shows the ROC curves, which is also saved in the `seqlearn-roc.pdf` file:
 
-	$ ./seqlearn.py -g -t test/train80.tsv -v test/test20.tsv # 80-20 split
+	$ ./seqlearn.py -g -t test/train80.tsv -v test/test20.tsv
 
 

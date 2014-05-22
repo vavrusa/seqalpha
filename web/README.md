@@ -36,7 +36,7 @@ on uWSGI deployment.
 
 It is possible (although inconvenient) to execute runnables from CLI as well:
 
-	$ python runner.py cgscore 5UTRaspic_small.fasta 10
+	$ python runner.py cgscore data/5UTRaspic_small.fasta 10
 	>5HSAA000316
 	agaagggagtgaagataaga
 
