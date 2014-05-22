@@ -5,6 +5,7 @@ classification into GQ families based on the topology. As a complement, the libr
 supports a prediction of a GQ family from known GQ-forming sequences using a novel predictor.
 
 The software is divided into the library and commandline tools, and the web interface.
+The README for both parts is located in the respective subdirectories.
 
 ## Library and tools
 
