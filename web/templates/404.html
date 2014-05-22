@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+	<div class="page_404" id="content">
+		<div>
+			<img src="{{ url_for('static', filename='404.png') }}" />
+    		<h2>Oops. This is not a droid you're looking for.</em>
+		</div>
+		<h3>What do you have mind?</h3>
+        <div class="navigation">
+            <div><a href="{{ url_for('index') }}">Start new search</a></div>
+            <div><a href="{{ url_for('examples') }}">View examples</a></div>
+        </div>
+	</div>
+{% endblock %}

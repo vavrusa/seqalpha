@@ -1,0 +1,31 @@
+<!doctype html>
+<head>
+    <title>SequenceAlpha 0.1</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='jquery-ui-1.10.4.custom.min.css') }}">
+    <script type=text/javascript>
+      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    <!-- jQuery & extensions -->
+    <script src="{{ url_for('static', filename='jquery-1.11.0.js') }}"></script>
+    <script src="{{ url_for('static', filename='jquery-ui-1.10.4.custom.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='stat.js') }}"></script>
+    <!-- D3 & visualizations -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='partition.js') }}"></script>
+    <script src="{{ url_for('static', filename='histogram.js') }}"></script>
+    <script src="{{ url_for('static', filename='ratio.js') }}"></script>
+</head>
+<body>
+    <a href="javascript:history.back()"><img id="logo" src="{{ url_for('static', filename='seqalpha.png') }}"/></a>
+
+	<div id="page">
+
+	{% for message in get_flashed_messages() %}
+	<div class="flash">{{ message }}</div>
+	{% endfor %}
+		
+	{% block body %}{% endblock %}
+
+	</div>
+</body>

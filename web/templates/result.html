@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+<script src="{{ url_for('static', filename='fasta.js') }}"></script>
+<script src="{{ url_for('static', filename='gff.js') }}"></script>
+
+<form class="query">
+	Result for <span class="highlight">{{ task.info()['name'] }}</span> on <span class="highlight">{{ task.data_in }}</span>
+</form>
+<div id="content">
+	<h3>Result table</h3>
+	<table class="{{ task.type }}">
+		<tr>
+  		{% for field in task.fields %}
+  		<th>{{ field }}</th>
+  		{% endfor %}
+		</tr>
+		{% for row in task.result %}
+		<tr>
+			{% for elem in row %}
+			<td>{{ elem }}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+  	</table>
+</div>
+
+{% endblock %}

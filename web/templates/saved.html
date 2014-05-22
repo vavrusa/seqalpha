@@ -1,0 +1,36 @@
+{% extends "query.html" %}
+{% block content %}
+
+<script src="{{ url_for('static', filename='fetch_result.js') }}"></script>
+
+<!-- Current result -->
+<h2>Here is the list of saved searches:</h2>
+<div class="result_list">
+  	{% for search in searches %}
+	<div class="result" data-uuid="{{ search.uid }}">
+		<div class="result_runner">
+            {% for task in search.task_list %}
+             {% if loop.index > 1 %}
+                &#8592
+             {% endif %}
+             {{ task.info()['name'] }}
+            {% endfor %}
+        </div>
+		<div class="result_header">
+			{{ search.uid }}
+		</div>
+		<div class="result_toolbar">
+			<a class="search_continue" href="{{ url_for('search', search_id=search.uid) }}">Continue</a> |
+            <a class="search_remove" href="#">Remove</a>
+		</div>
+	</div>
+  	{% endfor %}
+
+    {% if not searches %}
+        <h2>No saved searches.</em>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,79 @@
+body            { font-family: 'Georgia',sans-serif; background: #F5F3EE; margin: 0; padding: 0; }
+a				{ color: #4A96AD; }
+h1, h2, h3     	{ color: #7D1935; }
+fieldset		{ border: 0; }
+table			{ border-collapse: collapse; background-color: rgb(252, 252, 252); }
+table, td		{ border: 1px solid rgb(137, 192, 196); padding: 0.5em; word-wrap: break-word; }
+th				{ background-color: #7D1935; border: 1px solid #7D1935; padding: 1em; color: white; }
+table .terminator  { background-color: #A86276; border: none; }
+table .clickable { background-color: #DEF1F7; cursor: pointer; }
+table .clickable:hover { background-color: #A1D0DF; }
+.centered { text-align: center; }
+.hidden { display: none; }
+
+#logo			{ margin: 2em auto 2em auto; display: block; }
+#page			{ }
+#content		{ margin-top: 2em; margin-left: 5em; margin-right: 5em; }
+
+/* 404 */
+.page_404 { text-align: center; }
+.page_404 #navigation { padding: 0.5em; font-weight: bold; }
+
+/* Header, picking of runner */
+#runner_picker .ui-selectee { display: inline-block; padding: 0.5em; margin-right: 0.5em; background-color: #4A96AD; box-shadow: 0 0 0.5em #444; border-radius: 0.5em; cursor: pointer;}
+#runner_picker .ui-selected { background-color: #3CA755; }
+#runner_picker .disabled { color: #666; background-color: #444; cursor: default;}
+
+/* Query form */
+form.query		{ padding: 1.2em; background-color: #7D1935; box-shadow: 0px 0px 20px rgba(10,10,10,0.5);  rgb(240,240,240); color: white; text-align: center;}
+form.query a	{ color: #79E0FF; }
+form.query .highlight { font-style: italic; color: #79E0FF; }
+#query_input input { width: 40em; margin-left: 0.5em; }
+
+/* Upload form. */
+#upload_form { background-color: #4A96AD; }
+
+/* Search results */
+.result_list	{ width: 100%; } 
+.result { background: #4A96AD; clear: both; }
+.active_result { background: #3CA755; }
+.result > div { padding: 1em; }
+.result .result_runner { float: left; background: #333; font-weight: bold; color: white; }
+.result .result_header { float: left; }
+.result .result_toolbar { text-align: right; }
+.result a { color: white; }
+#result 		{ padding: 2em; background: white; }
+#search_toolbar { margin-top: 1.2em; background: #7D1935; padding: 1em; text-align: center; }
+#search_toolbar a { color: white; }
+
+
+/* Tables */
+.result table a { color: #7D1935; font-weight: bold; }
+.result_gff, .result_fasta, .result_score { width: 100%; }
+.chart { width: 100%; }
+.subresult { padding: 0.5em; }
+.subresult h4 { border-bottom: 1px dashed #ccc; padding-bottom: 0.5em; }
+
+/* Topology */
+#topology { }
+#topology .sidebar { float: right; border-left: 1px dashed #ccc; padding: 1.2em; }
+#topology .mainbar { margin-right: 1.2em; }
+#topology img.topo_path { width: 150px; }
+
+/* Charts */
+.chart { margin: auto; display: block; width: 500px; }
+
+/* Partition chart */
+.partition rect { stroke: #eee; fill: #aaa; }
+.partition rect.parent { cursor: pointer; fill: #ddd; }
+
+/* Histogram. */
+.histogram .bar rect { fill: #7D1935; shape-rendering: crispEdges; }
+.histogram .bar text { fill: #fff; /* Axis. */ }
+.histogram .axis path, .axis line { fill: none; stroke: #000; shape-rendering: crispEdges; }
+
+/* Ratio */
+.ratio .axis path, .ratio .axis line { fill: none; stroke: #000; shape-rendering: crispEdges; }
+.ratio .bar { opacity: 0.75; }
+.ratio .bar:hover { opacity: 1.0; }
+.ratio .x.axis path { display: none; }

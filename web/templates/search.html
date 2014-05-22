@@ -1,0 +1,34 @@
+{% extends "query.html" %}
+{% block content %}
+
+<script src="{{ url_for('static', filename='fetch_result.js') }}"></script>
+<script src="{{ url_for('static', filename='fasta.js') }}"></script>
+<script src="{{ url_for('static', filename='gff.js') }}"></script>
+<script src="{{ url_for('static', filename='topology.js') }}"></script>
+
+<!-- Current result -->
+<h2>Here are the results for your query:</h2>
+<div class="result_list">
+  	{% for task in search.task_list %}
+	<div class="result" data-uuid="{{ task.uid }}">
+		<div class="result_runner">{{ task.info()['name'] }}</div>
+		<div class="result_header">
+			<a href="{{ url_for('getfile', uuid=task.uid, inout='in') }}">{{ basename(task.data_in) }}</a> &rarr;
+			<a href="{{ url_for('getfile', uuid=task.uid, inout='out') }}">{{ basename(task.data_out) }}</a> with <b>{{ task.processed }}</b> results
+		</div>
+		<div class="result_toolbar">
+			<a class="result_show" href="#">Show</a> |
+            <a class="result_del" href="#">Delete</a>
+		</div>
+	</div>
+  	{% endfor %}
+</div>
+
+<div id="result"></div>
+
+<div id="search_toolbar" data-uuid="{{ search.uid }}">
+    <a class="search_persist" href="#" data-state="{{ search.persistent }}">Save this search</a> |
+	<a href="{{ url_for('reset') }}" id="search_reset">Start new search</a>
+</div>
+	
+{% endblock %}

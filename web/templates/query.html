@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<!-- Query builder form -->
+<script src="{{ url_for('static', filename='query_form.js') }}"></script>
+<form action="{{ url_for('query') }}" method="post" class="query">
+	{% if not search %}
+  	<fieldset id="step_question">
+		<label for="dataset" class="question">Pick a dataset to search</label>
+		<select name="dataset" id="dataset_picker">
+		{% for dataset in datasets %}
+			<option value="{{ dataset.resource }}">{{ dataset.id }}</option>
+  		{% endfor %}
+		</select>
+        or <a href="#" id="upload_show">upload new dataset.</a>
+	</fieldset>
+	<!-- New search -->
+	<fieldset id="step_runnable">
+		<label class="question">I want to filter using</label>
+	{% else %}
+	<!-- Refine search -->
+	<fieldset id="step_runnable">
+		<label class="question">I want to refine current search using</label>
+		<input type="hidden" name="uuid" value="{{ search.task_list[0].uid }}" />
+	{% endif %}
+		<input type="hidden" name="runner" id="runner_data" />
+		<ul id="runner_picker">
+		{% for id, info in runnables.iteritems() %}
+		<li data-id="{{ id }}" data-accepts="{{ info['accepts'] }}" data-param="{{ info['param'] }}">{{ info['name'] }}</li>
+  		{% endfor %}
+		</ul>
+	</fieldset>
+	<fieldset id="step_param">
+        <span id="query_input"></span>
+	    <input type="submit" value="Query" />
+	</fieldset>
+	<fieldset>
+		<a href="{{ url_for('examples') }}" id="examples">Examples</a>
+  		<a href="{{ url_for('saved') }}" id="saved">Saved searches</a>
+	</fieldset>
+</form>
+<form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" class="hidden query" id="upload_form">
+    <label class="question">Upload new dataset (FASTA or GFF): </label>
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
+
+  <!-- Search result block -->
+  <div id="content">
+	{% block content %}{% endblock %}
+  </div>
+
+{% endblock %}
