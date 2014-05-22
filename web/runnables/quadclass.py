@@ -20,9 +20,10 @@ class Runnable(runnable.Runnable):
 
     def eval_sequence(self, id, seq, out):
         # Load class list
-        gq_classlist = seqlearn.load_classlist('runnables/quadclasslib/gqclass.tsv')
+        gq_classlist = seqlearn.load_classlist('runnables/quadclasslib/gqclass-mono.tsv')
         pval_table = seqlearn.calc_pval(gq_classlist)
-        candidates = seqlearn.fit(gq_classlist, seq.upper(), pval_table)
+        loops = loops = seqlearn.find_fragments(seq.upper())
+        candidates = seqlearn.fit(gq_classlist, loops, pval_table)
         configurations = []
         for key in candidates:
             configurations.append('%s:%s/%s' % (key[1], key[0], ','.join(candidates[key])))
