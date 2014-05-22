@@ -48,7 +48,7 @@ The tool for learning and fitting, using the the PDB structure spatial metrics. 
 quadclass tool. The ML learning algorithm is trained on the twist angle and planarity metrics parameters from the
 training set and plots a decision surface along with the estimated GQ family predictions for each entry in the test set.
 
-	$ ./quadlearn.py -t train90.tsv control.tsv
+	$ ./quadlearn.py -t test/train80.tsv test/test20.tsv
 
 ### seqlearn
 
@@ -56,6 +56,9 @@ training set and plots a decision surface along with the estimated GQ family pre
 The tool for prediction of the GQ topologies from the sequences. The input of the program is a sequence (or list of sequences) as parameters, and optionally a training TSV data set.
 If no sequence is passed to the tool, the whole training set is processed and the overview of all predictors including the p-values is printed to the standard output.
 
+	# Scan all GQ structures
+	$ ./quadclass.py -o gqclass-all.tsv 2_plus_2 3_plus_1 basket bi_diagonal_loop bi_lateral_loop bi_propeller chair_type four_strand pdl pplp propeller
+	# Predict family from sequence
 	$ ./seqlearn.py GGGTTGGGTTAGGGTTGGG
 	> GGGTTGGGTTAGGGTTGGG ...
 	232 2+= GGGTT|GGGTTA|GGGTT
@@ -73,12 +76,12 @@ from the quadclass analysis of all available structures and randomized.
 
 The quadlearn tool supports a `-t` parameter for a training set:
 
-	$ ./quadlearn.py -g -t train80.tsv test20.tsv # 80-20 split
+	$ ./quadlearn.py -g -t test/train80.tsv test/test20.tsv # 80-20 split
 
 ### Structure prediction
 
 The `-g`  parameter shows the ROC curves, which is also saved in the `seqlearn-roc.pdf` file:
 
-	$ ./seqlearn.py -g -t train80.tsv -v test20.tsv # 80-20 split
+	$ ./seqlearn.py -g -t test/train80.tsv -v test/test20.tsv # 80-20 split
 
 
