@@ -9,6 +9,7 @@ The library requires Python and addditionally a BioPython library for the FASTA/
 
  	$ pip install biopython
 	$ pip install markdown 
+	$ pip install matplotlib 
 	$ pip install sklearn
 
 Each of the utilities supports the `-h` or `--help` parameter with an example usage and a short overview
